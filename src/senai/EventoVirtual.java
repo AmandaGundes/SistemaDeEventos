@@ -19,10 +19,10 @@ public class EventoVirtual extends Evento {
 		this.url = url;
 	}
 
-	@Override
-	public String toString() {
-		return "EventoVirtual [url=" + url + "]";
-	}
+	//@Override
+	//public String toString() {
+		//return "EventoVirtual [url=" + url + "]";
+	//}
 	
 	
 

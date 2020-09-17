@@ -2,23 +2,22 @@ package senai;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Evento implements Agendamento {
+public abstract class Evento implements Agendamento {
 	
 	private String nome;
 	private LocalDate data;
 	private String descricao;
 	private Usuario organizador;
-	private List<Usuario> participantes;
+	protected List<Usuario> participantes;
 	
 	public Evento(String nome, LocalDate data, String descricao, Usuario organizador) {
 		this.nome = nome;
 		this.data = data;
 		this.descricao = descricao;
 		this.organizador = organizador;
-		this.participantes = new ArrayList<Usuario>();
+		this.participantes = new MeuArrayList<Usuario>();
 	}
 
 	public String getNome() {
@@ -60,6 +59,9 @@ public class Evento implements Agendamento {
 	}
 	
 	public void addParticipante(Usuario participante) {
+		if (participante == this.organizador) {
+			throw new RuntimeException("O participante informado é o organizador do evento.");
+		}
 		this.participantes.add(participante);
 	}
 	
@@ -70,7 +72,7 @@ public class Evento implements Agendamento {
 	@Override
 	public String toString() {
 		return "Evento [nome=" + nome + ", data=" + data + ", descricao=" + descricao + ", organizador=" + organizador
-				+ "]";
+				+ ", participantes=" + participantes + "]";
 	}
 
 	
