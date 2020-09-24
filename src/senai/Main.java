@@ -35,6 +35,8 @@ public class Main {
 			e.printStackTrace();
 		}
 		evento1.setData("12/10/2020");
+		evento1.verificarLimitesPacote();
+		evento1.verificarCategoriaEvento();
 		System.out.println(evento1);
 		
 		System.out.println("... Evento 2 ...");
@@ -44,6 +46,8 @@ public class Main {
 		} catch (RuntimeException e) {
 			e.printStackTrace();
 		}
+		evento2.verificarLimitesPacote();
+		evento2.verificarCategoriaEvento();
 		System.out.println(evento2);
 		
 		System.out.println("... Compromisso ...");
